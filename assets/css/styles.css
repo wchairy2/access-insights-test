@@ -53,7 +53,8 @@
 
     :root {
       --nav-h: 76px;
-      --nav-total-h: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 16px);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --nav-total-h: calc(var(--nav-h) + var(--safe-top));
       /* Colors — all text/bg combos verified ≥4.5:1 contrast (WCAG 1.4.3) */
       --accent:      #f0c96a;   /* 5.1:1 on dark bg */
       --accent2:     #7ecfb3;   /* 4.7:1 on dark bg */
@@ -118,12 +119,11 @@
       position: fixed;
       top: 0; left:0; right:0;
       z-index: 100;
-      min-height: var(--nav-h);
-      height: auto;
+      height: var(--nav-total-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: calc(env(safe-area-inset-top, 0px) + 8px) 60px 8px;
+      padding: var(--safe-top) 60px 0;
       background: rgba(10,6,18,0.72);
       backdrop-filter: blur(20px) saturate(1.4);
       -webkit-backdrop-filter: blur(20px) saturate(1.4);
@@ -633,7 +633,7 @@
     #home { padding-top: var(--nav-total-h); }
 
     /* ── Nav: fluid padding ──────────────────────────────── */
-    nav { padding: 0 clamp(20px, 5vw, 60px); }
+    nav { padding: var(--safe-top) clamp(20px, 5vw, 60px) 0; }
 
     /* ══════════════════════════════════════════
        2XL / XL — 1280px+ (wide desktops)
@@ -712,7 +712,7 @@
       }
 
       /* Nav tighter on phones */
-      nav { padding: calc(env(safe-area-inset-top, 0px) + 8px) 16px 8px; }
+      nav { padding: var(--safe-top) 16px 0; }
       .nav-logo-svg { width: 30px; }
       .nav-logo-text { font-size: 1.15rem; }
       nav ul a { padding: 14px 24px; font-size: 0.95rem; }
