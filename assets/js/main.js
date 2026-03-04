@@ -25,6 +25,25 @@
 
     /* Nav scroll tint */
     const navbar = $('#navbar');
+    function syncNavHeight(){
+      const navHeight = Math.ceil(navbar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--nav-total-h', `${navHeight}px`);
+    }
+    syncNavHeight();
+
+    window.addEventListener('resize', syncNavHeight, {passive:true});
+    window.addEventListener('orientationchange', syncNavHeight);
+    if(window.visualViewport){
+      window.visualViewport.addEventListener('resize', syncNavHeight);
+    }
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(syncNavHeight);
+    }
+    if(window.ResizeObserver){
+      const navResizeObserver = new ResizeObserver(syncNavHeight);
+      navResizeObserver.observe(navbar);
+    }
+
     window.addEventListener('scroll',()=>{
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     },{passive:true});
