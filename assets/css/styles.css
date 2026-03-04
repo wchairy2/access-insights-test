@@ -114,7 +114,7 @@
        NAVIGATION
     ═══════════════════════════════════════════════════════ */
     nav {
-      position: sticky;
+      position: fixed;
       top: 0; left:0; right:0;
       z-index: 1000;
       min-height: var(--nav-h);
@@ -226,7 +226,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 64px clamp(20px, 5vw, 80px) 80px;
+      padding: calc(var(--nav-h) + 24px) clamp(20px, 5vw, 80px) 80px;
       position: relative;
     }
     section + section::before {
@@ -258,7 +258,7 @@
     }
 
     /* ─── HOME ──────────────────────────────────────────── */
-    #home { min-height: 100vh; min-height: 100svh; }
+    #home { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--nav-h) + 24px); }
     #home .section-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -627,7 +627,7 @@
 
     /* ── Base section padding uses fluid tokens ──────────── */
     section {
-      padding: var(--section-py-top) var(--section-px) var(--section-py-bot);
+      padding: calc(var(--nav-h) + 24px) var(--section-px) var(--section-py-bot);
     }
     /* ── Nav: fluid padding ──────────────────────────────── */
     nav { padding: 12px clamp(20px, 5vw, 60px); }
@@ -716,12 +716,12 @@
 
       /* Sections */
       section {
-        padding: 36px clamp(16px, 5vw, 32px) 48px;
+        padding: calc(var(--nav-h) + 24px) clamp(16px, 5vw, 32px) 48px;
         min-height: auto; /* allow sections to be taller than viewport on small screens */
       }
       #home {
         min-height: 100svh; /* use svh for mobile browser chrome */
-        padding-top: 24px;
+        padding-top: calc(var(--nav-h) + 24px);
       }
 
       /* Home text */
@@ -817,11 +817,11 @@
     ══════════════════════════════════════════ */
     @media (max-height: 500px) and (orientation: landscape) {
       section { min-height: auto; }
-      #home { min-height: auto; padding-top: 20px; }
+      #home { min-height: auto; padding-top: calc(var(--nav-h) + 24px); }
       .home-text h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 16px; }
       .home-text p { margin-bottom: 24px; font-size: 0.95rem; }
       .home-visual { display: none; }
-      section { padding-top: 24px; padding-bottom: 32px; }
+      section { padding-top: calc(var(--nav-h) + 24px); padding-bottom: 32px; }
     }
 
     /* ══════════════════════════════════════════
