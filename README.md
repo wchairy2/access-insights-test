@@ -14,33 +14,34 @@ access-insights/
 │   ├── css/styles.css      # All styles (WCAG 2.1 AAA verified)
 │   ├── js/main.js          # Navigation, scroll animations, form handling
 │   └── images/logo.svg     # Standalone logo
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Pages auto-deploy
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Deploying to GitHub Pages
+## Deploying to Netlify
 
 ### First-time setup
 
 1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Under *Source*, select **GitHub Actions**
-4. Push any commit — the site deploys automatically
+2. In Netlify, select **Add new project → Import an existing project**
+3. Choose the `access-insights/access-insights` repository
+4. Use these settings:
+   - Build command: *(leave empty)*
+   - Publish directory: `.`
+5. Deploy site
 
-The included workflow (`.github/workflows/deploy.yml`) handles deployment on every push to `main`.
+Because this is a plain HTML/CSS/JS site, no build step is required.
 
-Live URL will be: `https://<your-username>.github.io/<repo-name>/`
+After linking the repo, Netlify will auto-deploy on every push to `main`.
 
 ### Custom domain (optional)
 
-1. Add a `CNAME` file to the root containing your domain, e.g. `accessinsights.co`
-2. Configure DNS: add a CNAME record pointing to `<your-username>.github.io`
-3. Enable HTTPS in **Settings → Pages** once DNS propagates
+1. In Netlify, open **Domain management**
+2. Add your custom domain (e.g. `accessinsights.co`)
+3. Update DNS records as instructed by Netlify
+4. Enable HTTPS (Netlify-managed certificate) once DNS propagates
 
 ---
 
