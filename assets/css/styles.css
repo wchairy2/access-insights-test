@@ -707,8 +707,9 @@
     ══════════════════════════════════════════ */
     @media (max-width: 767px) {
       :root {
-        --nav-h: 74px;
-        --nav-total-h: calc(var(--nav-h) + var(--safe-top) + 8px);
+        --safe-top: max(env(safe-area-inset-top, 0px), 12px);
+        --nav-h: 68px;
+        --nav-total-h: calc(var(--nav-h) + var(--safe-top));
       }
 
       /* Nav tighter on phones */
@@ -775,8 +776,9 @@
     ══════════════════════════════════════════ */
     @media (max-width: 479px) {
       :root {
-        --nav-h: 72px;
-        --nav-total-h: calc(var(--nav-h) + var(--safe-top) + 8px);
+        --safe-top: max(env(safe-area-inset-top, 0px), 12px);
+        --nav-h: 64px;
+        --nav-total-h: calc(var(--nav-h) + var(--safe-top));
       }
 
       /* Very compact nav */
