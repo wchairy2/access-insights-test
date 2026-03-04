@@ -707,7 +707,8 @@
     ══════════════════════════════════════════ */
     @media (max-width: 767px) {
       :root {
-        --nav-h: 68px;
+        --nav-h: 74px;
+        --nav-total-h: calc(var(--nav-h) + var(--safe-top) + 8px);
       }
 
       /* Nav tighter on phones */
@@ -773,7 +774,10 @@
        XS — 0–479px (small phones: SE, mini)
     ══════════════════════════════════════════ */
     @media (max-width: 479px) {
-      :root { --nav-h: 64px; }
+      :root {
+        --nav-h: 72px;
+        --nav-total-h: calc(var(--nav-h) + var(--safe-top) + 8px);
+      }
 
       /* Very compact nav */
       .nav-logo-text { font-size: 1rem; }
