@@ -90,26 +90,38 @@
     }
     :focus:not(:focus-visible) { outline: none; }
 
-    /* ─── Background (decorative) ───────────────────────── */
+    /* ─── Background (hero photo + dark overlay) ───────── */
     .gradient-canvas {
       position: fixed;
       inset: 0;
       z-index: -2;
+      background-image: url('../images/hero-bg.jpeg');
+      background-size: cover;
+      background-position: center 60%;
+      background-repeat: no-repeat;
+    }
+    .gradient-canvas::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
       background: linear-gradient(
         to bottom,
-        #0a0612 0%, #170b2d 15%, #1a0a2e 22%, #0f1938 35%,
-        #0d1f3c 45%, #0a2535 58%, #082830 70%,
-        #0b2a2a 80%, #0c2520 90%, #071a14 100%
+        rgba(8, 4, 18, 0.72) 0%,
+        rgba(10, 6, 22, 0.78) 20%,
+        rgba(8, 12, 30, 0.82) 45%,
+        rgba(6, 18, 28, 0.88) 70%,
+        rgba(5, 16, 20, 0.94) 100%
       );
     }
     .glow {
       position: fixed; border-radius: 50%;
       filter: blur(120px); pointer-events: none; z-index: -1;
     }
-    .glow-1 { width:600px;height:600px;background:radial-gradient(circle,rgba(120,60,200,.18) 0%,transparent 70%);top:-100px;left:-150px; }
-    .glow-2 { width:500px;height:500px;background:radial-gradient(circle,rgba(30,140,200,.12) 0%,transparent 70%);top:30vh;right:-100px; }
-    .glow-3 { width:700px;height:700px;background:radial-gradient(circle,rgba(20,180,140,.10) 0%,transparent 70%);top:65vh;left:20%; }
-    .glow-4 { width:500px;height:500px;background:radial-gradient(circle,rgba(14,180,100,.10) 0%,transparent 70%);bottom:0;right:10%; }
+    .glow-1 { width:600px;height:600px;background:radial-gradient(circle,rgba(120,60,200,.14) 0%,transparent 70%);top:-100px;left:-150px; }
+    .glow-2 { width:500px;height:500px;background:radial-gradient(circle,rgba(30,140,200,.10) 0%,transparent 70%);top:30vh;right:-100px; }
+    .glow-3 { width:700px;height:700px;background:radial-gradient(circle,rgba(20,180,140,.08) 0%,transparent 70%);top:65vh;left:20%; }
+    .glow-4 { width:500px;height:500px;background:radial-gradient(circle,rgba(14,180,100,.08) 0%,transparent 70%);bottom:0;right:10%; }
 
     /* ═══════════════════════════════════════════════════════
        NAVIGATION
@@ -148,12 +160,8 @@
       height: auto;
       flex-shrink: 0;
     }
-    .nav-logo-text {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      line-height: 1.4; /* WCAG fix: was 1.1 → 1.4 */
-    }
-    .nav-logo-text strong { color: var(--accent); font-weight: 600; }
+    .nav-logo-text { font-family:"Avenir","Avenir Next","Century Gothic","Nunito Sans",sans-serif;font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.4;font-weight:700;letter-spacing:0.02em; }
+    .nav-logo-text strong { color:var(--accent);font-weight:700; }
     .nav-logo-text span   { color: var(--text-light); font-weight: 300; }
 
     /* Nav list */
@@ -258,6 +266,13 @@
       width: 32px; height: 1px;
       background: var(--accent);
     }
+    .eyebrow--centered { justify-content: center; }
+    .eyebrow--centered::after {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--accent);
+    }
 
     /* ─── HOME ──────────────────────────────────────────── */
     #home { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--safe-top) + var(--nav-h) + 24px); }
@@ -277,7 +292,7 @@
     }
     .home-text h1 em { font-style: italic; color: var(--accent); }
     .home-text p {
-      font-size: 1.05rem;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
       line-height: 1.8;
       color: var(--text-muted);
       max-width: min(440px, 100%);
@@ -350,10 +365,11 @@
       padding: 0;
     }
     .specialty-card {
-      padding: 0;
-      background: none;
+      padding: 32px;
+      background: #08061a;
       border: none;
       position: relative;
+      border-radius: 2px;
     }
     .specialty-card::before {
       content: '';
@@ -368,11 +384,11 @@
     .specialty-num { display: none; }
     .specialty-card h3 {
       font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 400; margin-bottom: 12px;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 400; margin-bottom: 12px;
       line-height: 1.3;
       color: var(--text-light);
     }
-    .specialty-card p { font-size:0.9rem; line-height:1.8; color:var(--text-muted); }
+    .specialty-card p { font-size: clamp(0.85rem, 1.3vw, 0.95rem); line-height:1.8; color:var(--text-muted); }
 
     /* ─── TEAM ───────────────────────────────────────────── */
     .team-header { text-align:center; margin-bottom:60px; }
@@ -383,16 +399,12 @@
     }
     .team-header h2 em { font-style:italic; color:var(--accent); }
     .team-header p {
-      margin-top:20px; font-size:1rem; color:var(--text-muted);
+      margin-top:20px; font-size: clamp(0.9rem, 1.4vw, 1rem); color:var(--text-muted);
       max-width:480px; margin-left:auto; margin-right:auto; line-height:1.8;
     }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      list-style: none; padding: 0;
-    }
+    .team-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:24px;list-style:none;padding:0; }
+    .team-grid > li { width:calc((100% - 72px) / 4);flex-shrink:0; }
     .team-card {
       text-align:center; padding:40px 20px;
       border:1px solid rgba(255,255,255,0.07);
@@ -416,24 +428,24 @@
     .team-avatar-inner {
       position:relative; width:100%;height:100%;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-family:var(--font-display);font-size:1.7rem;font-weight:300;
+      font-family:var(--font-display);font-size:clamp(1.3rem, 2.5vw, 1.7rem);font-weight:300;
       color:var(--accent);background:#0f1528;z-index:1;
     }
-    .team-card h4 { font-family:var(--font-display);font-size:1.2rem;font-weight:400;margin-bottom:6px;line-height:1.3; } /* WCAG fix: added line-height */
-    .team-card .role { font-size:0.875rem;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5; } /* WCAG fix: was 0.73rem (11.7px) → 14px */
-    .team-card .bio { font-size:0.9rem;line-height:1.75;color:var(--text-muted); } /* WCAG fix: was 0.85rem (13.6px) → 14.4px */
+    .team-card h4 { font-family:var(--font-display);font-size:clamp(1rem, 1.8vw, 1.2rem);font-weight:400;margin-bottom:6px;line-height:1.3; } /* WCAG fix: added line-height */
+    .team-card .team-member-role { font-size:0.875rem;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5; } /* WCAG fix: was 0.73rem (11.7px) → 14px */
+    .team-card .team-member-bio { font-size:clamp(0.82rem, 1.2vw, 0.9rem);line-height:1.75;color:var(--text-muted); } /* WCAG fix: was 0.85rem (13.6px) → 14.4px */
 
     /* ─── CONTACT ────────────────────────────────────────── */
     #contact { text-align:center; }
     #contact .section-inner { display:flex;flex-direction:column;align-items:center; }
     #contact h2 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 5.5rem);
+      font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.08;
       margin-bottom: 24px; max-width: 680px;
     }
     #contact h2 em { font-style:italic; color:var(--accent2); }
-    .contact-sub { font-size:1rem;color:var(--text-muted);max-width:440px;line-height:1.8;margin-bottom:48px; }
+    .contact-sub { font-size:clamp(0.9rem, 1.4vw, 1rem);color:var(--text-muted);max-width:440px;line-height:1.8;margin-bottom:48px; }
 
     /* Form */
     .contact-form { width:100%; max-width: min(560px, 100%); display:flex;flex-direction:column;gap:18px; }
@@ -448,7 +460,7 @@
       color:var(--text-light);
       line-height:1.5;
     }
-    .form-field label .req { color:var(--accent);margin-left:2px; }
+    .form-field label .required-indicator { color:var(--accent);margin-left:2px; }
 
     .form-field input,
     .form-field textarea {
@@ -526,8 +538,8 @@
     /* Contact info */
     .contact-info { margin-top:56px; display:flex; gap: clamp(24px, 5vw, 60px); flex-wrap:wrap; justify-content:center; }
     .contact-info-item { text-align:left; }
-    .contact-info-item .label { font-size:0.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;line-height:1.5; } /* WCAG fix: was 0.7rem (11.2px) → 14px */
-    .contact-info-item .value { font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--text-light);line-height:1.5; } /* WCAG fix: weight 300→400 on thin-stroke font at 17.6px; added line-height */
+    .contact-info-item .contact-info-label { font-size:0.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;line-height:1.5; } /* WCAG fix: was 0.7rem (11.2px) → 14px */
+    .contact-info-item .contact-info-value { font-family:var(--font-display);font-size:clamp(0.95rem, 1.6vw, 1.15rem);font-weight:400;color:var(--text-light);line-height:1.5; } /* WCAG fix: weight 300→400 on thin-stroke font at 17.6px; added line-height */
     .contact-info-item a {
       color:var(--text-light);
       text-decoration:underline;
@@ -559,13 +571,13 @@
     .why-text .eyebrow { justify-content: flex-start; }
     .why-text h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.9rem, 3.5vw, 3.4rem);
+      font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12;
       margin-bottom: 28px;
     }
     .why-text h2 em { font-style: italic; color: var(--accent2); }
     .why-text p {
-      font-size: 1rem; line-height: 1.85;
+      font-size: clamp(0.9rem, 1.4vw, 1rem); line-height: 1.85;
       color: var(--text-muted);
       margin-bottom: 20px;
     }
@@ -584,7 +596,7 @@
       background: rgba(240,201,106,0.04);
       border-radius: 2px;
     }
-    .stat-num {
+    .stat-number {
       font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 300;
@@ -592,7 +604,7 @@
       line-height: 1;
       margin-bottom: 12px;
     }
-    .stat-label {
+    .stat-description {
       font-size: 0.875rem;
       line-height: 1.6;
       color: var(--text-muted);
@@ -600,7 +612,7 @@
 
     /* Specialties sub-header text */
     .specialties-sub {
-      font-size: 1rem; line-height: 1.8;
+      font-size: clamp(0.9rem, 1.4vw, 1rem); line-height: 1.8;
       color: var(--text-muted);
       max-width: 540px;
       margin-top: 16px;
@@ -731,7 +743,6 @@
       /* Nav tighter on phones */
       nav { padding: 12px 16px; }
       .nav-logo-svg { width: 30px; }
-      .nav-logo-text { font-size: 1.15rem; }
       nav ul a { padding: 14px 24px; font-size: 0.95rem; }
 
       /* Sections */
@@ -758,18 +769,17 @@
 
             /* Specialties — 1 col on phone */
       .specialties-grid { grid-template-columns: 1fr; gap: 32px; }
-      .specialty-card { padding: 32px 24px; }
+      .specialty-card { padding: 32px; }
       .specialty-num { font-size: 2.2rem; }
 
       /* Team — 2 col compact */
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .team-card { padding: 28px 14px; }
+      .team-grid > li { width:calc((100% - 72px) / 4);flex-shrink:0; }
+    .team-card { padding: 28px 14px; }
       .team-avatar { width: 68px; height: 68px; margin-bottom: 16px; }
-      .team-avatar-inner { font-size: 1.4rem; }
       .team-header { margin-bottom: 40px; }
 
       /* Contact */
-      #contact h2 { font-size: clamp(2rem, 7vw, 3rem); }
       .contact-form { max-width: 100%; }
       .form-row { grid-template-columns: 1fr; gap: 16px; }
       .contact-info { flex-direction: column; gap: 24px; align-items: flex-start; margin-top: 40px; }
@@ -796,21 +806,22 @@
       }
 
       /* Very compact nav */
-      .nav-logo-text { font-size: 1rem; }
       .nav-logo-svg { width: 26px; }
 
       /* Single-column everything */
       .team-grid { grid-template-columns: 1fr; gap: 12px; }
-      .team-card { padding: 28px 20px; }
+      .team-grid > li { width:calc((100% - 72px) / 4);flex-shrink:0; }
+    .team-card { padding: 28px 20px; }
 
       /* Headings scale tighter */
       .home-text h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
       .specialties-header h2,
-      .team-header h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-      #contact h2 { font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
+      .team-header h2,
+      .why-text h2,
+      #contact h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
 
       /* Specialty cards tighter */
-      .specialty-card { padding: 28px 20px; }
+      .specialty-card { padding: 28px; }
 
       /* Buttons full-width on tiny screens */
       .btn-primary {
@@ -850,7 +861,7 @@
     @media (min-width: 600px) and (max-width: 767px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .specialties-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 36px; }
-      .specialty-card { padding: 36px 28px; }
+      .specialty-card { padding: 36px; }
     }
 
     /* ══════════════════════════════════════════
