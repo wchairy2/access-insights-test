@@ -97,7 +97,7 @@
       z-index: -2;
       background-image: url('../images/hero-bg.jpeg');
       background-size: cover;
-      background-position: center 60%;
+      background-position: center 75%;
       background-repeat: no-repeat;
     }
     .gradient-canvas::after {
