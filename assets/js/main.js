@@ -218,7 +218,8 @@
       let valid = true;
       if(input.required && !input.value.trim()) valid=false;
       else if(input.type==='email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) valid=false;
-      input.setAttribute('aria-invalid', valid ? 'false' : 'true');
+      if(valid) input.removeAttribute('aria-invalid');
+      else input.setAttribute('aria-invalid', 'true');
       if(errEl){
         errEl.classList.toggle('visible',!valid);
         errEl.hidden = valid;
@@ -227,7 +228,10 @@
     }
 
     $$('#contact-form input, #contact-form textarea').forEach(input=>{
-      input.addEventListener('blur',()=>validateField(input));
+      input.addEventListener('blur',()=>{
+        // Avoid announcing "invalid" as users first navigate through empty required fields.
+        if(input.value.trim() || input.getAttribute('aria-invalid')==='true') validateField(input);
+      });
       input.addEventListener('input',()=>{
         if(input.getAttribute('aria-invalid')==='true') validateField(input);
       });
