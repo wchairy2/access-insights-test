@@ -28,7 +28,7 @@
   ══════════════════════════════════════════════ -->
   <nav id="navbar">
 
-    <a class="nav-logo" href="#home" aria-label="Access Insights">
+    <div class="nav-logo" role="text" aria-label="Access Insights">
       <!-- SVG logo — decorative duplicate of text, hidden from AT -->
       <svg class="nav-logo-svg"
            aria-hidden="true" role="presentation" focusable="false"
@@ -40,7 +40,7 @@
       <div class="nav-logo-text" aria-hidden="true">
         <strong>Access</strong><span> Insights</span>
       </div>
-    </a>
+    </div>
 
     <!-- Mobile toggle — full ARIA support -->
     <button class="hamburger" id="hamburger"
@@ -70,7 +70,7 @@
       <div class="section-inner">
         <div class="home-text">
           <p class="eyebrow fade-up visible">1.3 billion people live with disability worldwide</p>
-          <h1 id="home-heading" class="fade-up visible">
+          <h1 id="home-heading" class="fade-up visible" tabindex="0">
             Most products aren't designed with everyone in mind.
           </h1>
           <p class="fade-up visible">
@@ -95,7 +95,7 @@
       <div class="section-inner why-inner">
         <div class="why-text fade-up">
           <p class="eyebrow">The gap we're closing</p>
-          <h2 id="why-heading">Accessibility begins with inclusion.</h2>
+          <h2 id="why-heading" tabindex="0">Accessibility begins with inclusion.</h2>
           <p>Products fail in the real world because they are validated in labs, not lives. People with disabilities are brought in at the end, as test subjects, not as cocreators. Older adults are ignored entirely. The result: technology that does not fit, is not adopted, and does not help.</p>
           <p>We fix that by embedding research inside real communities, where the friction, the workarounds, and the genuine needs are visible from day one.</p>
         </div>
@@ -129,7 +129,7 @@
       <div class="section-inner">
         <div class="specialties-header">
           <p class="eyebrow fade-up">How we work</p>
-          <h2 id="specialties-heading" class="fade-up" aria-label="Research structured around real inclusion.">
+          <h2 id="specialties-heading" class="fade-up" aria-label="Research structured around real inclusion." tabindex="0">
             <span aria-hidden="true">Research structured<br>around <em>real inclusion.</em></span>
           </h2>
           <p class="specialties-sub fade-up">Every engagement puts people with disabilities and older adults at the center, not as passive participants, but as collaborators who shape what gets built and how.</p>
@@ -168,10 +168,10 @@
       <div class="section-inner">
         <div class="team-header">
           <p class="eyebrow fade-up" style="justify-content:center">The people</p>
-          <h2 id="team-heading" class="fade-up" aria-label="Practitioners. Advocates. Builders.">
+          <h2 id="team-heading" class="fade-up" aria-label="Practitioners. Advocates. Builders." tabindex="0">
             <span aria-hidden="true">Practitioners.<br><em>Advocates. Builders.</em></span>
           </h2>
-          <p class="fade-up">Our team brings together disability rights pioneers, Intel veterans in accessibility research and design, and community grounded technologists, united by a shared belief that the best innovation starts with lived experience.</p>
+          <p class="fade-up">Our team brings together disability rights pioneers, veterans in accessibility research and design, and community grounded technologists, united by a shared belief that the best innovation starts with lived experience.</p>
         </div>
         <ul class="team-grid" aria-label="Team members">
 
@@ -193,28 +193,28 @@
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">R</div></div>
             <h3>Richard Beckwith</h3>
             <p class="role">Research Fellow</p>
-            <p class="bio">former Intel research psychologist specializing in AI, disability, and aging, coauthor of foundational work separating aging research from accessibility.</p>
+            <p class="bio">Former Intel research psychologist specializing in AI, disability, and aging, coauthor of foundational work separating aging research from accessibility.</p>
           </li>
 
           <li class="team-card fade-up">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#7ecfb3">B</div></div>
             <h3>Becky Chierichetti</h3>
             <p class="role">Design Research Lead</p>
-            <p class="bio">former Intel Labs UX researcher exploring AI, mixed reality, and accessibility at the boundary of physical and digital worlds.</p>
+            <p class="bio">Former Intel Labs UX researcher exploring AI, mixed reality, and accessibility at the boundary of physical and digital worlds.</p>
           </li>
 
           <li class="team-card fade-up">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">M</div></div>
             <h3>Marco Beltman</h3>
             <p class="role">Research Fellow, Sensory Technology</p>
-            <p class="bio">former Intel principal engineer with a PhD in acoustics, 39 patents, and a volunteer raft guide opening rivers to people of all abilities.</p>
+            <p class="bio">Former Intel principal engineer with a PhD in acoustics, 39 patents, and a volunteer raft guide opening rivers to people of all abilities.</p>
           </li>
 
           <li class="team-card fade-up">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#7ecfb3">P</div></div>
             <h3>Pete Denman</h3>
             <p class="role">Interaction Design Lead</p>
-            <p class="bio">former Intel Labs designer who rebuilt Stephen Hawking's communication system, a wheelchair user channeling lived experience into inclusive design.</p>
+            <p class="bio">Former Intel Labs designer who rebuilt Stephen Hawking's communication system, a wheelchair user channeling lived experience into inclusive design.</p>
           </li>
 
           <li class="team-card fade-up">
@@ -232,12 +232,12 @@
     <section id="contact">
       <div class="section-inner">
         <p class="eyebrow fade-up">Partner with us</p>
-        <h2 id="contact-heading" class="fade-up" aria-label="Build technology that actually fits.">
+        <h2 id="contact-heading" class="fade-up" aria-label="Build technology that actually fits." tabindex="0">
           <span aria-hidden="true">Build technology<br><em>that actually fits.</em></span>
         </h2>
-        <p class="contact-sub fade-up">If your product touches the lives of people with disabilities or older adults, you owe it to them and your business to build with them, not just for them. Let's talk about how.</p>
+        <p class="contact-sub fade-up">If you design products for humans, your product touches the lives of people with disabilities. Inclusivity can make a profound difference in their lives and in your business. We can help you build with them; let's talk about how.</p>
 
-        <p class="fade-up" style="font-size:.875rem;line-height:1.5;color:var(--text-muted);margin-bottom:4px;align-self:flex-start;max-width:560px;width:100%;text-align:left">
+        <p class="fade-up" style="font-size:.875rem;line-height:1.5;color:var(--text-muted);margin-bottom:4px;align-self:center;max-width:min(560px, 100%);width:100%;text-align:left">
           Fields marked with an asterisk (*) are required.
         </p>
         <p id="form-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>

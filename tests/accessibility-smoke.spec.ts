@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -7,9 +7,14 @@ function indexFileUrl(): string {
   return pathToFileURL(indexPath).toString();
 }
 
+async function gotoIndex(page: Page): Promise<void> {
+  // Keep smoke tests focused on DOM/accessibility semantics and avoid waiting on full subresource load.
+  await page.goto(indexFileUrl(), { waitUntil: 'domcontentloaded' });
+}
+
 test.describe('Accessibility smoke checks', () => {
   test('heading hierarchy is valid and sequential', async ({ page }) => {
-    await page.goto(indexFileUrl());
+    await gotoIndex(page);
 
     const headings = await page.locator('h1, h2, h3, h4, h5, h6').evaluateAll((els) =>
       els.map((el) => Number(el.tagName.slice(1)))
@@ -24,7 +29,7 @@ test.describe('Accessibility smoke checks', () => {
   });
 
   test('header navigation links point to real section anchors', async ({ page }) => {
-    await page.goto(indexFileUrl());
+    await gotoIndex(page);
 
     const navHrefs = await page.locator('#nav-menu a[href^="#"]').evaluateAll((links) =>
       links.map((link) => link.getAttribute('href')).filter(Boolean)
@@ -38,7 +43,7 @@ test.describe('Accessibility smoke checks', () => {
   });
 
   test('keyboard users can skip to main content', async ({ page }) => {
-    await page.goto(indexFileUrl());
+    await gotoIndex(page);
 
     await page.keyboard.press('Tab');
     await expect(page.locator('.skip-link')).toBeFocused();
@@ -49,7 +54,7 @@ test.describe('Accessibility smoke checks', () => {
 
   test('mobile menu supports keyboard open, loop, and escape close', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(indexFileUrl());
+    await gotoIndex(page);
 
     const hamburger = page.locator('#hamburger');
     const menu = page.locator('#nav-menu');
@@ -78,7 +83,7 @@ test.describe('Accessibility smoke checks', () => {
   });
 
   test('invalid form submission focuses first invalid input and shows messages', async ({ page }) => {
-    await page.goto(indexFileUrl());
+    await gotoIndex(page);
 
     await page.locator('#contact').scrollIntoViewIfNeeded();
     await page.locator('button.btn-submit').click();
