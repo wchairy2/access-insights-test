@@ -96,7 +96,7 @@
     <section id="home">
       <div class="section-inner">
         <div class="home-text">
-          <h1 id="home-heading" class="fade-up visible">Innovation shaped by lived experience.</h1>
+          <h1 id="home-heading" class="fade-up visible" tabindex="0">Innovation shaped by lived experience.</h1>
           <p class="fade-up visible">
             Access Insights connects technology creators with communities of people with disabilities and older adults, turning lived experience into insight that leads to better products, stronger adoption, and larger markets.
           </p>
@@ -119,7 +119,7 @@
       <div class="section-inner why-inner">
         <div class="why-text fade-up">
           <p class="eyebrow">Our Purpose</p>
-          <h1 id="our-purpose-heading">Lived experience is one of the most powerful sources of innovation.</h1>
+          <h1 id="our-purpose-heading" tabindex="0">Lived experience is one of the most powerful sources of innovation.</h1>
           <p>Technology shapes how people live, work, and participate in society.</p>
           <p>Yet the people who navigate the most complex environments, adapting technology every day to meet their needs, are rarely involved in designing it.</p>
           <p>At Access Insights, we believe people with disabilities and older adults should be included as collaborators from the beginning, because their lived experience reveals opportunities, friction points, and design insights that traditional product development often misses.</p>
@@ -156,7 +156,7 @@
       <div class="section-inner">
         <div class="specialties-header">
           <p class="eyebrow fade-up">How We Work</p>
-          <h1 id="how-we-work-heading" class="fade-up" aria-label="Research structured around real inclusion.">
+          <h1 id="how-we-work-heading" class="fade-up" aria-label="Research structured around real inclusion." tabindex="0">
             <span aria-hidden="true">Research structured<br>around <em>real inclusion.</em></span>
           </h1>
           <p class="specialties-sub fade-up">Every engagement places people with disabilities and older adults at the center of the process as collaborators who shape what gets built and how.</p>
@@ -170,7 +170,7 @@
       <div class="section-inner">
         <div class="specialties-header">
           <p class="eyebrow fade-up">What We Deliver</p>
-          <h1 id="what-we-deliver-heading" class="fade-up" aria-label="Research and collaboration that reduce innovation risk and improve real-world product fit.">
+          <h1 id="what-we-deliver-heading" class="fade-up" aria-label="Research and collaboration that reduce innovation risk and improve real-world product fit." tabindex="0">
             <span aria-hidden="true">Research and collaboration that reduce innovation risk and improve <em>real-world product fit.</em></span>
           </h1>
           <p class="specialties-sub fade-up">Access Insights helps organizations build products that succeed in real-world environments.</p>
@@ -210,7 +210,7 @@
       <div class="section-inner">
         <div class="team-header">
           <p class="eyebrow fade-up" style="justify-content:center">Our Team</p>
-          <h1 id="team-heading" class="fade-up" aria-label="Practitioners. Advocates. Builders.">
+          <h1 id="team-heading" class="fade-up" aria-label="Practitioners. Advocates. Builders." tabindex="0">
             <span aria-hidden="true">Practitioners.<br><em>Advocates. Builders.</em></span>
           </h1>
           <p class="fade-up">Our team includes disability rights pioneers, accessibility researchers, technologists, and designers who share a belief that the most meaningful innovation begins with lived experience.</p>
@@ -337,7 +337,7 @@
     <section id="contact">
       <div class="section-inner">
         <p class="eyebrow fade-up">Partner With Us</p>
-        <h1 id="contact-heading" class="fade-up" aria-label="Build technology that truly works in the real world.">
+        <h1 id="contact-heading" class="fade-up" aria-label="Build technology that truly works in the real world." tabindex="0">
           <span aria-hidden="true">Build technology that truly works<br><em>in the real world.</em></span>
         </h1>
         <p class="contact-sub fade-up">If you design products for people, your work touches the lives of people with disabilities and older adults.</p>
@@ -425,7 +425,7 @@
         </div>
         <div id="form-error" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" hidden>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".8"/></svg>
-          We could not send your message right now. Please try again or email hello@accessinsights.net.
+          We could not send your message right now. Please try again shortly.
         </div>
 
         <footer class="footer-line fade-up">
@@ -442,11 +442,6 @@
     window.addEventListener('load', () => {
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       window.scrollTo(0, 0);
-      const homeHeading = document.getElementById('home-heading');
-      if (!homeHeading) return;
-      homeHeading.setAttribute('tabindex', '-1');
-      homeHeading.focus({ preventScroll: true });
-      homeHeading.addEventListener('blur', () => homeHeading.removeAttribute('tabindex'), { once: true });
     });
   </script>
 </body>
