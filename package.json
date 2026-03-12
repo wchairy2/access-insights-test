@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "run": "serve . -l 8080",
+    "build": "rm -rf dist && mkdir -p dist/test && cp -R assets dist/assets && cp index.html dist/index.html && cp test/index.html dist/test/index.html",
+    "test": "playwright test",
+    "test:a11y": "playwright test tests/axe-accessibility.spec.ts",
+    "test:smoke": "playwright test tests/accessibility-smoke.spec.ts"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.58.2"
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.58.2",
+    "serve": "^14.2.5"
   }
 }

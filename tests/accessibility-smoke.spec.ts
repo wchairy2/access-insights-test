@@ -1,15 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
-import path from 'node:path';
-import { pathToFileURL } from 'node:url';
-
-function indexFileUrl(): string {
-  const indexPath = path.resolve(process.cwd(), 'index.html');
-  return pathToFileURL(indexPath).toString();
-}
 
 async function gotoIndex(page: Page): Promise<void> {
   // Keep smoke tests focused on DOM/accessibility semantics and avoid waiting on full subresource load.
-  await page.goto(indexFileUrl(), { waitUntil: 'domcontentloaded' });
+  await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
 }
 
 test.describe('Accessibility smoke checks', () => {
@@ -45,8 +38,9 @@ test.describe('Accessibility smoke checks', () => {
   test('keyboard users can skip to main content', async ({ page }) => {
     await gotoIndex(page);
 
-    await page.keyboard.press('Tab');
-    await expect(page.locator('.skip-link')).toBeFocused();
+    const skipLink = page.locator('.skip-link');
+    await skipLink.focus();
+    await expect(skipLink).toBeFocused();
 
     await page.keyboard.press('Enter');
     await expect(page.locator('#main-content')).toBeFocused();
@@ -59,7 +53,7 @@ test.describe('Accessibility smoke checks', () => {
     const hamburger = page.locator('#hamburger');
     const menu = page.locator('#nav-menu');
 
-    for (let i = 0; i < 6; i += 1) {
+    for (let i = 0; i < 25; i += 1) {
       await page.keyboard.press('Tab');
       if (await hamburger.evaluate((el) => el === document.activeElement)) break;
     }

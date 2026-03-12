@@ -101,5 +101,4 @@ Loaded via Google Fonts (no local files needed):
 
 ## Contact
 
-hello@accessinsights.co  
-Portland, OR
+Contact is form-only via the website contact form (`#contact` section on the page).
