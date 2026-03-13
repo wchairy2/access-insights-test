@@ -80,15 +80,22 @@
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     },{passive:true});
 
-    /* aria-current on scroll — WCAG 4.1.2 */
-    const sectionObserver = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          setCurrentNavLink(entry.target.id);
-        }
-      });
-    },{threshold:0.45});
-    $$('section[id]').forEach(s=>sectionObserver.observe(s));
+    /* aria-current on scroll — WCAG 4.1.2
+       Uses scroll position rather than IntersectionObserver so tall sections
+       (which never reach a 45% threshold) still highlight correctly. */
+    const navSections = $$('section[id]');
+    function updateActiveNav(){
+      const navH = navbar.getBoundingClientRect().height;
+      const scrollMid = window.scrollY + navH + 40;
+      let active = navSections[0];
+      for(const sec of navSections){
+        if(sec.offsetTop <= scrollMid) active = sec;
+        else break;
+      }
+      if(active) setCurrentNavLink(active.id);
+    }
+    window.addEventListener('scroll', updateActiveNav, {passive:true});
+    updateActiveNav();
 
     const initialTarget = getHashTarget(window.location.hash) || $('#home');
     if(initialTarget && initialTarget.id){
