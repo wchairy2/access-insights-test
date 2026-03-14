@@ -413,7 +413,8 @@
       max-width:480px; margin-left:auto; margin-right:auto; line-height:1.8;
     }
 
-    .team-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;list-style:none;padding:0; }
+    .team-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:24px;list-style:none;padding:0; }
+    .team-card { width: calc(25% - 18px); }
     .team-card {
       position:relative;
       text-align:center; padding:40px 20px;
@@ -804,7 +805,7 @@
       .specialties-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 40px; }
 
       /* Team — 2 col */
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .team-grid { gap: 20px; } .team-card { width: calc(50% - 10px); }
 
       /* Form row stays 2-col on tablet landscape */
     }
@@ -852,7 +853,7 @@
       .specialty-num { font-size: 2.2rem; }
 
       /* Team — 2 col compact */
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .team-grid { gap: 14px; } .team-card { width: calc(50% - 7px); }
 
     .team-card { padding: 28px 14px; }
       .team-avatar { width: 68px; height: 68px; margin-bottom: 16px; }
@@ -888,7 +889,7 @@
       .nav-logo-svg { width: 26px; }
 
       /* Single-column everything */
-      .team-grid { grid-template-columns: 1fr; gap: 12px; }
+      .team-grid { gap: 12px; } .team-card { width: 100%; }
 
     .team-card { padding: 28px 20px; }
 
@@ -938,7 +939,7 @@
        TABLET PORTRAIT — 600–767px
     ══════════════════════════════════════════ */
     @media (min-width: 600px) and (max-width: 767px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { } .team-card { width: calc(50% - 12px); }
       .specialties-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 36px; }
       .specialty-card { padding: 36px; }
     }
@@ -952,5 +953,5 @@
       body { background: #fff; color: #000; font-size: 12pt; }
       a { color: #000; text-decoration: underline; }
       .specialties-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .team-grid { gap: 8px; } .team-card { width: calc(50% - 4px); }
     }
