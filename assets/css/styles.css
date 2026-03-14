@@ -278,10 +278,6 @@
       background: var(--accent);
     }
 
-    /* Eyebrow text lavender on specialties + contact; lines stay gold */
-    #specialties .eyebrow,
-    #contact .eyebrow { color: var(--text-light) !important; }
-
     /* ─── HOME ──────────────────────────────────────────── */
     #home { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--safe-top) + var(--nav-h) + 24px); }
     #home .section-inner {
@@ -593,6 +589,7 @@
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12;
       margin-bottom: 28px;
+      color: var(--text-light);
     }
     .why-text h1 em { font-style: italic; color: var(--accent2); }
     .why-text p {
