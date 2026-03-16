@@ -60,7 +60,7 @@
       --accent2:     #7ecfb3;   /* 4.7:1 on dark bg */
       --accent-blue: #0090d6;
       --text-light:  #f0eefc;   /* 14:1 on dark bg  */
-      --text-muted:  #9490ba;   /* deeper lavender */
+      --text-muted:  #a8a4cc;   /* bright lavender, readable on all section backgrounds */
       --focus-ring:  #f0c96a;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
