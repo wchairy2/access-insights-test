@@ -292,7 +292,7 @@
       font-weight: 300;
       line-height: 1.12;
       margin-bottom: 28px;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .home-text h1 em { font-style: italic; color: var(--accent); }
     .home-text p {
@@ -358,7 +358,7 @@
       font-family: var(--font-display);
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12; max-width: 560px;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .specialties-header h1 em { font-style:italic; color:var(--accent2); }
 
@@ -401,7 +401,7 @@
       font-family: var(--font-display);
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .team-header h2 em { font-style:italic; color:var(--accent2); }
     .team-header p {
@@ -459,7 +459,7 @@
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.08;
       margin-bottom: 24px; max-width: 680px;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     #contact h2 em { font-style:italic; color:var(--accent2); }
     .contact-sub { font-size:clamp(0.9rem, 1.4vw, 1rem);color:var(--text-light);max-width:440px;line-height:1.8;margin-bottom:48px; }
@@ -591,7 +591,7 @@
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12;
       margin-bottom: 28px;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .why-text h1 em { font-style: italic; color: var(--accent2); }
     .why-text p {
@@ -646,7 +646,7 @@
       font-size: clamp(1.9rem, 4vw, 4.2rem);
       font-weight: 300; line-height: 1.12;
       margin-bottom: 28px;
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .credentials-text h1 em { font-style: italic; color: var(--accent2); }
     .credentials-text p {
