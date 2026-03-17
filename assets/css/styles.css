@@ -261,7 +261,7 @@
       font-weight: 500;
       letter-spacing: 0.14em;   /* WCAG fix: was 0.2em — reduced for legibility */
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-light);
       margin-bottom: 24px;
     }
     .eyebrow::before {
