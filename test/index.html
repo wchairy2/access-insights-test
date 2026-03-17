@@ -9,7 +9,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    /* /test-only nav tightening so six links fit a single desktop row */
+    #nav-menu { flex-wrap: nowrap; }
+    #nav-menu a {
+      font-size: 0.78rem;
+      padding: 0 14px;
+      letter-spacing: 0.08em;
+    }
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      #nav-menu a {
+        font-size: 0.74rem;
+        padding: 0 12px;
+        letter-spacing: 0.06em;
+      }
+    }
+    /* /test-only accessibility override: keep content available to screen readers immediately */
+    .fade-up {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    /* /test-only: center align final two sections */
+    #team { text-align: center; }
+    #contact { text-align: center; }
+    #contact .section-inner { align-items: center; }
+    #contact .contact-sub { text-align: center; }
+  </style>
 </head>
 
 <body>
@@ -53,8 +79,9 @@
 
     <ul id="nav-menu" role="list">
       <li><a href="#home" aria-current="location">Home</a></li>
-      <li><a href="#why">The Inclusion Gap</a></li>
-      <li><a href="#specialties">Our Services</a></li>
+      <li><a href="#our-purpose">Our Purpose</a></li>
+      <li><a href="#how-we-work">How We Work</a></li>
+      <li><a href="#what-we-deliver">What We Deliver</a></li>
       <li><a href="#team">Our Team</a></li>
       <li><a href="#contact">Partner With Us</a></li>
     </ul>
@@ -69,8 +96,7 @@
     <section id="home">
       <div class="section-inner">
         <div class="home-text">
-          <p class="eyebrow fade-up visible">1.3 billion people live with disability worldwide</p>
-          <h1 id="home-heading" class="fade-up visible" tabindex="0">Innovation shaped by <em>lived experience.</em></h1>
+          <h1 id="home-heading" class="fade-up visible" tabindex="0">Innovation shaped by lived experience.</h1>
           <p class="fade-up visible">
             Access Insights connects technology creators with communities of people with disabilities and older adults, turning lived experience into insight that leads to better products, stronger adoption, and larger markets.
           </p>
@@ -89,11 +115,11 @@
     </section>
 
     <!-- IMPACT STATS BAR -->
-    <section id="why" class="why-section">
+    <section id="our-purpose" class="why-section">
       <div class="section-inner why-inner">
         <div class="why-text fade-up">
-          <p class="eyebrow fade-up">The Inclusion Gap</p>
-          <h1 id="why-heading" class="fade-up" tabindex="0">Lived experience is one of the most <em>powerful sources of innovation.</em></h1>
+          <p class="eyebrow">Our Purpose</p>
+          <h1 id="our-purpose-heading" tabindex="0">Lived experience is one of the most powerful sources of innovation.</h1>
           <p>Technology shapes how people live, work, and participate in society.</p>
           <p>Yet the people who navigate the most complex environments, adapting technology every day to meet their needs, are rarely involved in designing it.</p>
           <p>At Access Insights, we believe people with disabilities and older adults should be included as collaborators from the beginning, because their lived experience reveals opportunities, friction points, and design insights that traditional product development often misses.</p>
@@ -102,38 +128,55 @@
         </div>
         <ul class="stats-grid fade-up" aria-label="Key accessibility statistics">
           <li class="stat-card">
-            <p class="stat-number" aria-label="1.3 billion">1.3B</p>
-            <p class="stat-description">people globally live with a significant disability</p>
+            <p class="sr-only">1.3 billion people globally live with a significant disability.</p>
+            <p class="stat-num" aria-hidden="true">1.3B</p>
+            <p class="stat-label" aria-hidden="true">people globally live with a significant disability</p>
           </li>
           <li class="stat-card">
-            <p class="stat-number" aria-label="16 percent">16%</p>
-            <p class="stat-description">of the world's population, the largest minority group</p>
+            <p class="sr-only">16 percent of the world's population are people with disabilities, the largest minority group.</p>
+            <p class="stat-num" aria-hidden="true">16%</p>
+            <p class="stat-label" aria-hidden="true">of the world's population, the largest minority group</p>
           </li>
           <li class="stat-card">
-            <p class="stat-number" aria-label="13 trillion dollars">$13T</p>
-            <p class="stat-description">in spending power held by people with disabilities and their networks</p>
+            <p class="sr-only">13 trillion dollars in spending power is held by people with disabilities and their networks.</p>
+            <p class="stat-num" aria-hidden="true">$13T</p>
+            <p class="stat-label" aria-hidden="true">in spending power held by people with disabilities and their networks</p>
           </li>
           <li class="stat-card">
-            <p class="stat-number" aria-label="70 percent">70%</p>
-            <p class="stat-description">of assistive technologies are abandoned within the first year of use</p>
+            <p class="sr-only">70 percent of assistive technologies are abandoned within the first year of use.</p>
+            <p class="stat-num" aria-hidden="true">70%</p>
+            <p class="stat-label" aria-hidden="true">of assistive technologies are abandoned within the first year of use</p>
           </li>
         </ul>
       </div>
     </section>
 
-
-    <!-- OUR SERVICES -->
-    <section id="specialties">
+    <!-- HOW WE WORK -->
+    <section id="how-we-work">
       <div class="section-inner">
         <div class="specialties-header">
-          <p class="eyebrow fade-up">Our Services</p>
-          <h1 id="specialties-heading" class="fade-up" aria-label="Research and collaboration that reduce innovation risk and improve real-world product fit." tabindex="0">
+          <p class="eyebrow fade-up">How We Work</p>
+          <h1 id="how-we-work-heading" class="fade-up" aria-label="Research structured around real inclusion." tabindex="0">
+            <span aria-hidden="true">Research structured<br>around <em>real inclusion.</em></span>
+          </h1>
+          <p class="specialties-sub fade-up">Every engagement places people with disabilities and older adults at the center of the process as collaborators who shape what gets built and how.</p>
+          <p class="specialties-sub fade-up">Our Living Labs model embeds research inside real community environments, allowing product teams to observe how technology integrates into everyday life.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DELIVER -->
+    <section id="what-we-deliver">
+      <div class="section-inner">
+        <div class="specialties-header">
+          <p class="eyebrow fade-up">What We Deliver</p>
+          <h1 id="what-we-deliver-heading" class="fade-up" aria-label="Research and collaboration that reduce innovation risk and improve real-world product fit." tabindex="0">
             <span aria-hidden="true">Research and collaboration that reduce innovation risk and improve <em>real-world product fit.</em></span>
           </h1>
           <p class="specialties-sub fade-up">Access Insights helps organizations build products that succeed in real-world environments.</p>
           <p class="specialties-sub fade-up">Through our Living Labs model, teams gain direct access to diverse participants, structured research engagements, and community-based settings that reveal how technology fits into everyday life.</p>
         </div>
-        <ul class="specialties-grid" aria-label="Our services">
+        <ul class="specialties-grid" aria-label="What we deliver services">
           <li class="specialty-card fade-up">
             <h2>Lived Experience Advisory</h2>
             <p>Rapid insight sessions with real participants in authentic community settings. Fast, credible direction for product teams exploring new concepts or product decisions.</p>
@@ -166,100 +209,126 @@
     <section id="team">
       <div class="section-inner">
         <div class="team-header">
-          <p class="eyebrow eyebrow--centered fade-up">Our Team</p>
-          <h2 id="team-heading" class="fade-up">Practitioners.<br><em>Advocates. Builders.</em></h2>
+          <p class="eyebrow fade-up" style="justify-content:center">Our Team</p>
+          <h1 id="team-heading" class="fade-up" aria-label="Practitioners. Advocates. Builders." tabindex="0">
+            <span aria-hidden="true">Practitioners.<br><em>Advocates. Builders.</em></span>
+          </h1>
           <p class="fade-up">Our team includes disability rights pioneers, accessibility researchers, technologists, and designers who share a belief that the most meaningful innovation begins with lived experience.</p>
         </div>
         <ul class="team-grid" aria-label="Team members">
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/dadamspdx/" aria-label="Darryl Adams on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">D</div></div>
-            <h4>Darryl Adams</h4>
-            <p class="team-member-role">Founder</p>
-            <p class="team-member-bio">AI and accessibility strategist focused on inclusive innovation for real world impact. Former Director of Accessibility at Intel.</p>
+            <h2>Darryl Adams</h2>
+            <p class="role">Founder</p>
+            <p class="bio">AI and accessibility strategist focused on inclusive innovation and real world impact. Darryl helps organizations turn emerging technologies into practical solutions that improve how people live and work.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/dadamspdx/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Darryl Adams on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/lex-frieden-91118b104/" aria-label="Lex Frieden on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#7ecfb3">L</div></div>
-            <h4>Lex Frieden</h4>
-            <p class="team-member-role">Senior Advisor</p>
-            <p class="team-member-bio">Chief architect of the ADA and the founder of the independent living movement; five decades shaping U.S. and international disability policy.</p>
+            <h2>Lex Frieden</h2>
+            <p class="role">Senior Advisor</p>
+            <p class="bio">Chief architect of the ADA and a founder of the independent living movement; five decades shaping U.S. and international disability policy.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/lex-frieden-91118b104/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Lex Frieden on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/richard-beckwith-3542bb4/" aria-label="Richard Beckwith on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">R</div></div>
-            <h4>Richard Beckwith, PhD</h4>
-            <p class="team-member-role">Research Fellow</p>
-            <p class="team-member-bio">Long career doing research in support of design – Areas: disability, education, and aging; Technologies: UX, AI (esp.&nbsp;NLP), and sensing.</p>
+            <h2>Richard Beckwith</h2>
+            <p class="role">Research Fellow</p>
+            <p class="bio">Research psychologist specializing in AI, disability, and aging, coauthor of foundational work separating aging research from accessibility.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/richard-beckwith-3542bb4/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Richard Beckwith on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/becky-chierichetti" aria-label="Becky Chierichetti on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#7ecfb3">B</div></div>
-            <h4>Becky Chierichetti</h4>
-            <p class="team-member-role">UX Research &amp; Design Lead</p>
-            <p class="team-member-bio">Intel Labs UX researcher exploring AI, mixed reality, and accessibility at the boundary of physical and digital worlds.</p>
+            <h2>Becky Chierichetti</h2>
+            <p class="role">Design Research Lead</p>
+            <p class="bio">UX researcher exploring AI, mixed reality, and accessibility at the boundary of physical and digital worlds.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/becky-chierichetti/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Becky Chierichetti on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/marco-beltman/" aria-label="Marco Beltman on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">M</div></div>
-            <h4>Marco Beltman, PhD</h4>
-            <p class="team-member-role">Research Fellow</p>
-            <p class="team-member-bio">Former Intel Principal Engineer, with 25 years of experience in acoustics, vibrations, and immersive spatial audio. Volunteer raft guide at Adventures Without Limits to open the outdoors to people of all abilities.</p>
+            <h2>Marco Beltman</h2>
+            <p class="role">Research Fellow, Sensory Technology</p>
+            <p class="bio">Principal engineer with a PhD in acoustics, 39 patents, and a volunteer raft guide opening rivers to people of all abilities.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/marco-beltman/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Marco Beltman on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/pete-denman-ab6b353/" aria-label="Pete Denman on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#7ecfb3">P</div></div>
-            <h4>Pete Denman</h4>
-            <p class="team-member-role">Design/UX Strategist</p>
-            <p class="team-member-bio">With 20 years of experience designing digital and physical products and prototypes, Pete's work spans the full spectrum of UX — most notably the redesign of Stephen Hawking's communication system.</p>
+            <h2>Pete Denman</h2>
+            <p class="role">Interaction Design Lead</p>
+            <p class="bio">Designer who rebuilt Stephen Hawking's communication system, a wheelchair user channeling lived experience into inclusive design.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/pete-denman-ab6b353/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Pete Denman on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-          <li class="team-card fade-up">
-            <a class="team-card-link" href="https://www.linkedin.com/in/susan-faulkner-4293a02" aria-label="Susan Faulkner on LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          <li class="team-card fade-up has-social">
             <div class="team-avatar" aria-hidden="true"><div class="team-avatar-inner" style="color:#f0c96a">S</div></div>
-            <h4>Susan Faulkner</h4>
-            <p class="team-member-role">Research Director</p>
-            <p class="team-member-bio">Former Intel user experience researcher and leader with over 30 years of experience delivering high-impact results focused on accessibility.</p>
+            <h2>Susan Faulkner</h2>
+            <p class="role">Research Director</p>
+            <p class="bio">User experience researcher and leader with over 30 years of experience delivering high-impact results focused on accessibility.</p>
+            <a class="social-link linkedin-link"
+               href="https://www.linkedin.com/in/susan-faulkner-4293a02/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Susan Faulkner on LinkedIn">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.342-1.248-.822 0-1.358.537-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.433.08-.587.175-.433.574-.881 1.244-.881.877 0 1.228.664 1.228 1.637v3.866h2.401V9.25c0-2.22-1.184-3.253-2.764-3.253-1.273 0-1.845.699-2.165 1.191v.024h-.016l.016-.024V6.169H6.25c.03.678 0 7.225 0 7.225h2.401z"/>
+              </svg>
+            </a>
           </li>
 
-        </ul>
-      </div>
-    </section>
-
-    <!-- TEAM CREDENTIALS -->
-    <section id="credentials" class="credentials-section" aria-labelledby="credentials-heading">
-      <div class="section-inner credentials-inner">
-        <div class="credentials-text fade-up">
-          <p class="eyebrow">The people behind the work</p>
-          <h1 id="credentials-heading" tabindex="0">
-            Seven people.<br><em>One rare convergence.</em>
-          </h1>
-          <p>Genuine expertise in accessibility is not common. Expertise at this depth — research scientists, policy architects, principal engineers, and senior UX leaders who have each spent decades at the center of the field — is rarer still. To find seven of them working in concert is nearly unheard of.</p>
-          <p>Together, the Access Insights team holds more than 60 patents, has delivered over 1,200 lectures and keynote addresses on four continents, and has authored more than 167 peer-reviewed publications. Their work shaped the laws millions rely on, the tools billions use, and the standards that define what responsible, inclusive technology looks like.</p>
-        </div>
-        <ul class="credentials-grid fade-up" aria-label="Team credentials at a glance">
-          <li class="cred-card">
-            <p class="cred-number" aria-label="60 plus patents">60+</p>
-            <p class="cred-description">patents held across acoustic engineering, augmented reality, and AI systems</p>
-          </li>
-          <li class="cred-card">
-            <p class="cred-number" aria-label="over 1200 keynotes and lectures">1,200+</p>
-            <p class="cred-description">lectures and keynote addresses delivered — from the White House to the United Nations</p>
-          </li>
-          <li class="cred-card">
-            <p class="cred-number" aria-label="167 plus publications">167+</p>
-            <p class="cred-description">peer-reviewed publications spanning disability policy, HCI, acoustics, and ethnography</p>
-          </li>
-          <li class="cred-card">
-            <p class="cred-number" aria-label="200 plus years">200+ yrs</p>
-            <p class="cred-description">of combined work that directly shaped federal disability law and global accessibility standards</p>
-          </li>
         </ul>
       </div>
     </section>
@@ -267,11 +336,16 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="section-inner">
-        <p class="eyebrow eyebrow--centered fade-up">Partner with us</p>
-        <h2 id="contact-heading" class="fade-up">Build technology<br><em>that actually fits.</em></h2>
-        <p class="contact-sub fade-up">If your product touches the lives of people with disabilities or older adults, you owe it to them and your business to build with them, not just for them. Let's talk about how.</p>
+        <p class="eyebrow fade-up">Partner With Us</p>
+        <h1 id="contact-heading" class="fade-up" aria-label="Build technology that truly works in the real world." tabindex="0">
+          <span aria-hidden="true">Build technology that truly works<br><em>in the real world.</em></span>
+        </h1>
+        <p class="contact-sub fade-up">If you design products for people, your work touches the lives of people with disabilities and older adults.</p>
+        <p class="contact-sub fade-up">Working alongside these communities leads to deeper insight, stronger adoption, and more inclusive innovation.</p>
+        <p class="contact-sub fade-up">Access Insights helps organizations build with the people their technology is meant to serve.</p>
+        <p class="contact-sub fade-up">Let's start the conversation.</p>
 
-        <p class="fade-up" style="font-size:.875rem;line-height:1.5;color:var(--text-muted);margin-bottom:4px;align-self:flex-start;max-width:min(560px, 100%);width:100%;text-align:left">
+        <p class="fade-up" style="font-size:.875rem;line-height:1.5;color:var(--text-muted);margin-bottom:4px;align-self:center;max-width:min(560px, 100%);width:100%;text-align:left">
           Fields marked with an asterisk (*) are required.
         </p>
         <p id="form-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -289,7 +363,7 @@
           </p>
           <div class="form-row">
             <div class="form-field">
-              <label for="fname">First Name <span class="required-indicator" aria-hidden="true">*</span></label>
+              <label for="fname">First Name <span class="req" aria-hidden="true">*</span></label>
               <input type="text" id="fname" name="fname"
                      autocomplete="given-name"
                      required aria-required="true"
@@ -300,7 +374,7 @@
               </span>
             </div>
             <div class="form-field">
-              <label for="lname">Last Name <span class="required-indicator" aria-hidden="true">*</span></label>
+              <label for="lname">Last Name <span class="req" aria-hidden="true">*</span></label>
               <input type="text" id="lname" name="lname"
                      autocomplete="family-name"
                      required aria-required="true"
@@ -313,7 +387,7 @@
           </div>
 
           <div class="form-field">
-            <label for="email">Email Address <span class="required-indicator" aria-hidden="true">*</span></label>
+            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
             <input type="email" id="email" name="email"
                    autocomplete="email"
                    required aria-required="true"
@@ -331,7 +405,7 @@
           </div>
 
           <div class="form-field">
-            <label for="message">Tell us about your research goals <span class="required-indicator" aria-hidden="true">*</span></label>
+            <label for="message">How can we help? <span class="req" aria-hidden="true">*</span></label>
             <textarea id="message" name="message" rows="5"
                       required aria-required="true"
                       aria-describedby="message-err"></textarea>
@@ -351,17 +425,10 @@
         </div>
         <div id="form-error" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" hidden>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".8"/></svg>
-          We could not send your message right now. Please try again or email hello@accessinsights.net.
+          We could not send your message right now. Please try again shortly.
         </div>
 
-        <address class="contact-info fade-up" style="font-style:normal">
-          <div class="contact-info-item">
-            <p class="contact-info-label">Headquarters</p>
-            <p class="contact-info-value">Portland, Oregon</p>
-          </div>
-        </address>
-
-        <div class="footer-line fade-up">
+        <footer class="footer-line fade-up">
           <p>© 2026 Access Insights. All rights reserved.</p>
         </footer>
       </div>
@@ -369,6 +436,13 @@
 
   </main>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    // /test-only: prevent restored virtual position and start reading flow from page top.
+    window.addEventListener('load', () => {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    });
+  </script>
 </body>
 </html>
