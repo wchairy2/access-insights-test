@@ -360,6 +360,7 @@
       font-weight: 300; line-height: 1.12; max-width: 560px;
       color: var(--text-light);
     }
+    .specialties-header h1 span { color: var(--text-light); }
     .specialties-header h1 em { font-style:italic; color:var(--accent2); }
 
     .specialties-grid {
