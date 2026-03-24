@@ -84,6 +84,8 @@
        Uses scroll position rather than IntersectionObserver so tall sections
        (which never reach a 45% threshold) still highlight correctly. */
     const navSections = $$('section[id]');
+    const navIds = $$('#nav-menu a').map(a => a.getAttribute('href').slice(1));
+    const sectionNavMap = { credentials: 'team', home: 'our-purpose' };
     function updateActiveNav(){
       const navH = navbar.getBoundingClientRect().height;
       const scrollMid = window.scrollY + navH + 40;
@@ -92,7 +94,10 @@
         if(sec.offsetTop <= scrollMid) active = sec;
         else break;
       }
-      if(active) setCurrentNavLink(active.id);
+      if(active){
+        const id = sectionNavMap[active.id] || active.id;
+        setCurrentNavLink(id);
+      }
     }
     window.addEventListener('scroll', updateActiveNav, {passive:true});
     updateActiveNav();
