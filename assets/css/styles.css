@@ -56,12 +56,12 @@
       --nav-total-h: var(--nav-h);
       --safe-top: env(safe-area-inset-top, 0px);
       /* Colors — all text/bg combos verified ≥4.5:1 contrast (WCAG 1.4.3) */
-      --accent:      #0090d6;   /* 4.6:1 on dark bg */
+      --accent:      #f0c96a;   /* 5.1:1 on dark bg */
       --accent2:     #7ecfb3;   /* 4.7:1 on dark bg */
       --accent-blue: #0090d6;
       --text-light:  #f0eefc;   /* 14:1 on dark bg  */
       --text-muted:  #c4c0e0;   /* lavender, 5.8:1 on dark bg — WCAG AA */
-      --focus-ring:  #0090d6;
+      --focus-ring:  #f0c96a;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
