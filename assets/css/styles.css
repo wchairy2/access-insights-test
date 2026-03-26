@@ -56,12 +56,12 @@
       --nav-total-h: var(--nav-h);
       --safe-top: env(safe-area-inset-top, 0px);
       /* Colors — all text/bg combos verified ≥4.5:1 contrast (WCAG 1.4.3) */
-      --accent:      #f0c96a;   /* 5.1:1 on dark bg */
-      --accent2:     #7ecfb3;   /* 4.7:1 on dark bg */
+      --accent:      #f7df8c;   /* 4.69:1 on dark bg */
+      --accent2:     #b2e8d8;   /* 4.55:1 at 40% navy */
       --accent-blue: #0090d6;
       --text-light:  #f0eefc;   /* 14:1 on dark bg  */
       --text-muted:  #c4c0e0;   /* lavender, 5.8:1 on dark bg — WCAG AA */
-      --focus-ring:  #f0c96a;
+      --focus-ring:  #f7df8c;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -127,7 +127,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 60px;
-      background: rgba(13,27,42,0.75);
+      background: rgba(13,27,42,0.4);
       backdrop-filter: blur(20px) saturate(1.4);
       -webkit-backdrop-filter: blur(20px) saturate(1.4);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -242,8 +242,8 @@
     }
     .section-inner { max-width: var(--inner-max); width: 100%; margin: 0 auto; }
     .content-box {
-      background: rgba(13,27,42,0.75);
-      border: 1px solid rgba(240,201,106,0.18);
+      background: rgba(13,27,42,0.4);
+      border: 1px solid rgba(247,223,140,0.18);
       border-radius: 4px;
       padding: clamp(32px, 5vw, 72px);
     }
@@ -370,8 +370,8 @@
     }
     .specialty-card {
       padding: 32px;
-      background: rgba(13,27,42,0.75);
-      border: 0.5px solid rgba(240,201,106,0.4);
+      background: rgba(13,27,42,0.4);
+      border: 0.5px solid rgba(247,223,140,0.4);
       position: relative;
       border-radius: 2px;
     }
@@ -414,7 +414,7 @@
       position:relative;
       text-align:center; padding:40px 20px;
       border:1px solid rgba(255,255,255,0.07);
-      background:rgba(13,27,42,0.75); border-radius:2px;
+      background:rgba(13,27,42,0.4); border-radius:2px;
       transition:border-color 0.3s ease, transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
     }
     .team-card-link {
@@ -427,7 +427,7 @@
       outline-offset:2px;
     }
     .team-card:hover {
-      border-color:rgba(240,201,106,0.3);
+      border-color:rgba(247,223,140,0.3);
       transform:translateY(-5px);
       box-shadow:0 20px 40px rgba(0,0,0,0.3);
     }
@@ -496,7 +496,7 @@
     .form-field textarea:focus {
       border-color: var(--accent);
       background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 0 3px rgba(240,201,106,0.28);
+      box-shadow: 0 0 0 3px rgba(247,223,140,0.28);
     }
     .form-field input::placeholder,
     .form-field textarea::placeholder { color: rgba(255,255,255,0.48); }
@@ -560,7 +560,7 @@
     .contact-info-item a {
       color:var(--text-light);
       text-decoration:underline;
-      text-decoration-color:rgba(240,201,106,0.4);
+      text-decoration-color:rgba(247,223,140,0.4);
       text-underline-offset:3px;
       transition:text-decoration-color 0.2s;
     }
@@ -611,8 +611,8 @@
     }
     .stat-card {
       padding: 28px 24px;
-      border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(13,27,42,0.75);
+      border: 1px solid rgba(247,223,140,0.18);
+      background: rgba(13,27,42,0.4);
       border-radius: 2px;
     }
     .stat-number {
@@ -631,9 +631,9 @@
 
     /* ── Credentials Section (Team stats) ─────────────────── */
     .credentials-section {
-      background: rgba(240,201,106,0.03);
-      border-top: 1px solid rgba(240,201,106,0.12);
-      border-bottom: 1px solid rgba(240,201,106,0.12);
+      background: rgba(247,223,140,0.03);
+      border-top: 1px solid rgba(247,223,140,0.12);
+      border-bottom: 1px solid rgba(247,223,140,0.12);
     }
     .credentials-inner {
       display: grid;
@@ -665,8 +665,8 @@
     }
     .cred-card {
       padding: 28px 24px;
-      border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(13,27,42,0.75);
+      border: 1px solid rgba(247,223,140,0.18);
+      background: rgba(13,27,42,0.4);
       border-radius: 2px;
     }
     .cred-number {
