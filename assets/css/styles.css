@@ -127,7 +127,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 60px;
-      background: rgba(13,27,42,0.7);
+      background: rgba(13,27,42,0.4);
       backdrop-filter: blur(20px) saturate(1.4);
       -webkit-backdrop-filter: blur(20px) saturate(1.4);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -242,7 +242,7 @@
     }
     .section-inner { max-width: var(--inner-max); width: 100%; margin: 0 auto; }
     .content-box {
-      background: rgba(13,27,42,0.7);
+      background: rgba(13,27,42,0.3);
       border: 1px solid rgba(240,201,106,0.18);
       border-radius: 4px;
       padding: clamp(32px, 5vw, 72px);
@@ -370,7 +370,7 @@
     }
     .specialty-card {
       padding: 32px;
-      background: rgba(13,27,42,0.7);
+      background: rgba(13,27,42,0.4);
       border: 0.5px solid rgba(240,201,106,0.4);
       position: relative;
       border-radius: 2px;
@@ -414,7 +414,7 @@
       position:relative;
       text-align:center; padding:40px 20px;
       border:1px solid rgba(255,255,255,0.07);
-      background:rgba(13,27,42,0.7); border-radius:2px;
+      background:rgba(13,27,42,0.4); border-radius:2px;
       transition:border-color 0.3s ease, transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
     }
     .team-card-link {
@@ -612,7 +612,7 @@
     .stat-card {
       padding: 28px 24px;
       border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(13,27,42,0.7);
+      background: rgba(13,27,42,0.4);
       border-radius: 2px;
     }
     .stat-number {
@@ -666,7 +666,7 @@
     .cred-card {
       padding: 28px 24px;
       border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(13,27,42,0.7);
+      background: rgba(13,27,42,0.4);
       border-radius: 2px;
     }
     .cred-number {
