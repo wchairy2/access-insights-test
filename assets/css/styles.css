@@ -226,7 +226,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: calc(var(--safe-top) + var(--nav-h) + 24px) clamp(20px, 5vw, 80px) 80px;
+      padding: calc(var(--nav-h) + 40px) clamp(20px, 5vw, 80px) 60px;
       position: relative;
     }
     main[id], section[id] {
@@ -274,7 +274,7 @@
     }
 
     /* ─── HOME ──────────────────────────────────────────── */
-    #home { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-top: var(--nav-h); padding-bottom: 0; }
+    #home { min-height: 100vh; min-height: 100svh; }
     #home .section-inner {
       display: flex;
       flex-direction: column;
