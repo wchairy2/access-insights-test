@@ -98,22 +98,11 @@
       z-index: -2;
       background-image: url('../images/hero-bg.jpeg');
       background-size: cover;
-      background-position: center 80%;
+      background-position: 70% center;
       background-repeat: no-repeat;
     }
     .gradient-canvas::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgba(8, 4, 18, 0.72) 0%,
-        rgba(10, 6, 22, 0.78) 20%,
-        rgba(8, 12, 30, 0.82) 45%,
-        rgba(6, 18, 28, 0.88) 70%,
-        rgba(5, 16, 20, 0.94) 100%
-      );
+      display: none;
     }
     .glow {
       position: fixed; border-radius: 50%;
@@ -281,10 +270,14 @@
     /* ─── HOME ──────────────────────────────────────────── */
     #home { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--safe-top) + var(--nav-h) + 24px); }
     #home .section-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .home-text {
+      max-width: 760px;
     }
     .home-text h1 {
       font-family: var(--font-display);
@@ -299,7 +292,6 @@
       font-size: clamp(0.9rem, 1.4vw, 1rem);
       line-height: 1.85;
       color: var(--text-light);
-      max-width: min(440px, 100%);
       margin-bottom: 32px;
     }
     .btn-primary {
@@ -372,8 +364,8 @@
     }
     .specialty-card {
       padding: 32px;
-      background: #08061a;
-      border: none;
+      background: rgba(13,27,42,0.8);
+      border: 0.5px solid rgba(240,201,106,0.4);
       position: relative;
       border-radius: 2px;
     }
@@ -416,7 +408,7 @@
       position:relative;
       text-align:center; padding:40px 20px;
       border:1px solid rgba(255,255,255,0.07);
-      background:rgba(255,255,255,0.02); border-radius:2px;
+      background:rgba(13,27,42,0.8); border-radius:2px;
       transition:border-color 0.3s ease, transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
     }
     .team-card-link {
@@ -450,7 +442,7 @@
     }
     .team-card h3 { font-family:var(--font-display);font-size:clamp(1rem, 1.8vw, 1.2rem);font-weight:400;margin-bottom:6px;line-height:1.3; } /* WCAG fix: added line-height */
     .team-card .team-member-role { font-size:0.875rem;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5; } /* WCAG fix: was 0.73rem (11.7px) → 14px */
-    .team-card .team-member-bio { font-size:clamp(0.82rem, 1.2vw, 0.9rem);line-height:1.75;color:var(--text-light); } /* WCAG fix: was 0.85rem (13.6px) → 14.4px */
+    .team-card .team-member-bio { font-size:clamp(0.875rem, 1.2vw, 0.95rem);line-height:1.85;color:var(--text-light); }
 
     /* ─── CONTACT ────────────────────────────────────────── */
     #contact { text-align:center; }
@@ -614,7 +606,7 @@
     .stat-card {
       padding: 28px 24px;
       border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(240,201,106,0.04);
+      background: rgba(13,27,42,0.8);
       border-radius: 2px;
     }
     .stat-number {
@@ -668,7 +660,7 @@
     .cred-card {
       padding: 28px 24px;
       border: 1px solid rgba(240,201,106,0.18);
-      background: rgba(240,201,106,0.04);
+      background: rgba(13,27,42,0.8);
       border-radius: 2px;
     }
     .cred-number {
