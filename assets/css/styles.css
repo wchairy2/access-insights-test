@@ -226,7 +226,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: calc(var(--safe-top) + var(--nav-h) + 60px) clamp(20px, 5vw, 80px) 60px;
+      padding: calc(var(--safe-top) + var(--nav-h) + 36px) clamp(20px, 5vw, 80px) 60px;
       position: relative;
     }
     main[id], section[id] {
