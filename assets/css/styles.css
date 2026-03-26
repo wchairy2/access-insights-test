@@ -230,12 +230,12 @@
       position: relative;
     }
     main[id], section[id] {
-      scroll-margin-top: calc(var(--nav-total-h) + var(--safe-top) + 12px);
+      scroll-margin-top: calc(var(--nav-total-h) + var(--safe-top));
     }
     section + section::before {
       content: '';
       position: absolute;
-      top: 0; left: 10%; right: 10%;
+      top: calc(var(--nav-total-h) + var(--safe-top)); left: 10%; right: 10%;
       height: 1px;
       background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
       pointer-events: none;
