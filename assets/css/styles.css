@@ -274,7 +274,7 @@
     }
 
     /* ─── HOME ──────────────────────────────────────────── */
-    #home { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--safe-top) + var(--nav-h) + 24px); }
+    #home { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-top: var(--nav-h); padding-bottom: 0; }
     #home .section-inner {
       display: flex;
       flex-direction: column;
