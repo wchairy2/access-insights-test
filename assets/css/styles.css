@@ -230,16 +230,17 @@
       position: relative;
     }
     main[id], section[id] {
-      scroll-margin-top: calc(var(--nav-total-h) + var(--safe-top) + 1px);
+      scroll-margin-top: var(--nav-total-h);
     }
-    section + section::before {
+    section:not(:last-of-type)::after {
       content: '';
       position: absolute;
-      top: calc((var(--nav-total-h) + var(--safe-top)) * -1); left: 10%; right: 10%;
+      bottom: 0; left: 10%; right: 10%;
       height: 1px;
       background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
       pointer-events: none;
     }
+    section + section::before { display: none; }
     .section-inner { max-width: var(--inner-max); width: 100%; margin: 0 auto; }
     .content-box {
       background: rgba(13,27,42,0.4);
