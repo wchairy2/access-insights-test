@@ -210,6 +210,86 @@
       border-radius: 2px;
     }
     :focus:not(:focus-visible) { outline: none; }
+    /* ── Thank you modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 20, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-box {
+      background: rgba(13,27,42,0.97);
+      border: 1px solid rgba(247,223,140,0.35);
+      border-radius: 6px;
+      padding: clamp(36px, 5vw, 56px) clamp(32px, 5vw, 56px);
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+    .modal-check {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--accent2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.5rem;
+      color: var(--accent2);
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .modal-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .modal-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 36px;
+      background: transparent;
+      border: 1px solid rgba(247,223,140,0.4);
+      border-radius: 2px;
+      color: var(--accent);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .modal-close:hover {
+      background: rgba(247,223,140,0.08);
+      border-color: rgba(247,223,140,0.7);
+    }
   </style>
 </head>
 
@@ -390,7 +470,23 @@
               var form = document.getElementById('quad-form');
               var success = document.getElementById('form-success');
               var error = document.getElementById('form-error');
+              var modal = document.getElementById('thankyou-modal');
+              var closeBtn = document.getElementById('modal-close-btn');
               if (!form) return;
+
+              function openModal() {
+                modal.classList.add('active');
+                closeBtn.focus();
+                document.body.style.overflow = 'hidden';
+              }
+              function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+              }
+
+              closeBtn.addEventListener('click', closeModal);
+              modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+              document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
 
               function validateField(el) {
                 var valid = el.value.trim() !== '';
@@ -423,8 +519,7 @@
                 .then(function(response) {
                   if (!response.ok) throw new Error('Failed');
                   form.style.display = 'none';
-                  success.style.display = 'block';
-                  success.focus();
+                  openModal();
                 })
                 .catch(function() {
                   error.style.display = 'block';
@@ -448,6 +543,18 @@
     </section>
 
   </main>
+
+  <!-- Thank you modal -->
+  <div id="thankyou-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-box">
+      <div class="modal-check" aria-hidden="true">✓</div>
+      <h2 class="modal-title" id="modal-title">Thank you for signing up.</h2>
+      <p class="modal-body" id="modal-desc">
+        We've received your information and look forward to seeing you at QUAD. Someone from the Access Insights team will be in touch soon.
+      </p>
+      <button class="modal-close" id="modal-close-btn" aria-label="Close confirmation and return to page">Close</button>
+    </div>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>
