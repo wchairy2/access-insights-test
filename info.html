@@ -466,13 +466,13 @@
           </div><!-- end text-align:left -->
 
           <script>
-            (function() {
+            document.addEventListener('DOMContentLoaded', function() {
               var form = document.getElementById('quad-form');
               var success = document.getElementById('form-success');
               var error = document.getElementById('form-error');
               var modal = document.getElementById('thankyou-modal');
               var closeBtn = document.getElementById('modal-close-btn');
-              if (!form) return;
+              if (!form || !modal || !closeBtn) return;
 
               function openModal() {
                 modal.classList.add('active');
@@ -530,7 +530,7 @@
               form.querySelectorAll('input, select, textarea').forEach(function(el) {
                 el.addEventListener('blur', function() { if (el.hasAttribute('required')) validateField(el); });
               });
-            })();
+            });
           </script>
 
           </div>
